@@ -1,16 +1,18 @@
+$w-card: 200px;
+
 .catalog {
   display: grid;
-  grid-template-columns: repeat(4, $w-card);
   justify-content: center;
 
   gap: 48px;
 
   $resolutions:
-    3 1023px,
-    2 767px;
+    2 488px,
+    3 768px,
+    4 1024px;
 
   @each $number, $res in $resolutions {
-    @media (max-width: #{$res}) {
+    @media (min-width: #{$res}) {
       grid-template-columns: repeat(#{$number}, $w-card);
     }
   }
