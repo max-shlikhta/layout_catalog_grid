@@ -1,0 +1,27 @@
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(4, $w-card);
+  justify-content: center;
+
+  gap: 48px;
+
+  $resolutions:
+    3 1023px,
+    2 767px;
+
+  @each $number, $res in $resolutions {
+    @media (max-width: #{$res}) {
+      grid-template-columns: repeat(#{$number}, $w-card);
+    }
+  }
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $w-card;
+    height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+}
